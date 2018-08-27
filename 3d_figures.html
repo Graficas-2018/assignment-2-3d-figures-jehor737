@@ -9,16 +9,20 @@
 <script src="3d_figures.js"></script>
 
 <script type="text/javascript">
-          
+
 	$(document).ready(
 			function() {
 		        var canvas = document.getElementById("webglcanvas");
 			    var gl = initWebGL(canvas);
 		        initViewport(gl, canvas);
 		        initGL(canvas);
+            var pyramid = createPyramid(gl, [-5, 0, -10], [0.1, 1.0, 0.2]);
+						var octahedron = createOctahedron(gl, [3, 0, -10], [0, 1, 0],canvas.height);
+						var scutoid = createScutoid(gl, [-1, 0, -10], [-0.4, 1.0, 0.1]);
+
 				initShader(gl);
 				// TO DO: create and draw the figures
-				run(gl, []);
+				run(gl, [pyramid, octahedron, scutoid]);
 			}
 	);
 
@@ -27,7 +31,7 @@
 </head>
 <body>
 
-    <canvas id="webglcanvas" style="border: none;" width="500" height="500"></canvas>
+    <canvas id="webglcanvas" style="border: none;" width="1200px" height="700px"></canvas>
 
 </body>
 </html>
